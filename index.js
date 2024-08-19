@@ -25,7 +25,7 @@ db.run(`
 `);
 
 const app = express();
-
+app.use(express.json());
 app.post('/api/users', (req, res) => {
     const { email, password } = req.body;
     db.run('INSERT INTO users (email, password) VALUES (?, ?)', [email, password], (err) => {
